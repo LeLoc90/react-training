@@ -4,7 +4,7 @@ import { useState, useCallback, useMemo } from 'react'
 // Optimized TodoList component
 
 // Use React.FC for better typing
-export const TodoList: React.FC = () => {
+export const TestTodoList: React.FC = () => {
   // Use useMemo to avoid parsing localStorage on every render
   const initialList = useMemo(() => {
     const storedList = localStorage.getItem('storedList')
