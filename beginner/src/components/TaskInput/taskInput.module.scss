@@ -1,3 +1,17 @@
 .form {
-  margin-top: 1rem;
+  margin: 1rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+
+  & input {
+    border-radius: 0.5rem;
+    padding: 1rem;
+  }
+
+  & button {
+    padding: 0.85rem 1rem;
+    cursor: pointer;
+  }
 }

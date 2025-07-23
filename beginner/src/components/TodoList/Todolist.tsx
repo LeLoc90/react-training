@@ -7,6 +7,7 @@ export default function Todolist() {
       <h1>Todo List</h1>
       <TaskInput />
       <TaskList />
+      <TaskList doneList />
     </div>
   )
 }
