@@ -1,24 +1,27 @@
 .taskRow {
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 1rem;
   margin: 1rem 0;
 
-  & input {
-    width: 2rem;
+  & input[type='checkbox'] {
+    min-width: 2rem;
     aspect-ratio: 1/1;
     cursor: pointer;
   }
   & .taskName {
     flex: 1;
-    &.taskDone {
+    & .taskDone {
       text-decoration: line-through;
       opacity: 0.5;
     }
   }
 
   & .taskActions {
+    width: 20%;
     display: flex;
+    justify-content: end;
     gap: 1rem;
   }
 }

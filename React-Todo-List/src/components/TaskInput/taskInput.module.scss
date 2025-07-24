@@ -1,11 +1,11 @@
 .form {
   margin: 1rem 0;
   display: flex;
-  justify-content: center;
   align-items: center;
   gap: 0.75rem;
 
   & input {
+    flex: 1;
     border-radius: 0.5rem;
     padding: 1rem;
   }

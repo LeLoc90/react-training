@@ -12,12 +12,12 @@ export default function Todolist() {
       <TaskInput addTask={setTaskList} list={[...taskList, ...doneList]} />
       <TaskList
         list={taskList}
-        removeFromThisList={setTaskList}
+        handleFromThisList={setTaskList}
         addToOtherList={setDoneList}
       />
       <TaskList
         list={doneList}
-        removeFromThisList={setDoneList}
+        handleFromThisList={setDoneList}
         addToOtherList={setTaskList}
         isDoneList
       />
