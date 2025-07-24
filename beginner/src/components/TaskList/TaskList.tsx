@@ -8,43 +8,55 @@ interface TaskListProps {
   removeFromThisList: React.Dispatch<React.SetStateAction<Task[]>>
 }
 
-export default function TaskList(props: TaskListProps) {
-  const { isDoneList, list, addToOtherList, removeFromThisList } = props
-
+export default function TaskList({
+  isDoneList = false,
+  list,
+  addToOtherList,
+  removeFromThisList
+}: TaskListProps) {
   const toggleDone = (id: string) => {
     const currentTask = list.find((task) => task.id === id)
-    removeFromThisList(list.filter((task) => task.id !== id))
     if (currentTask) {
+      removeFromThisList((prev) => prev.filter((task) => task.id !== id))
       addToOtherList((prev) => [...prev, currentTask])
     }
   }
 
-  return (
-    <>
-      {list.length > 0 && (
-        <div>
-          <h2>{isDoneList ? 'Done' : 'Tasks'}</h2>
+  const handlRemoveTask = (id: string) => {
+    removeFromThisList((prev) => prev.filter((task) => task.id !== id))
+  }
 
-          {list.map((task) => (
-            <div className={styles.taskRow} key={task.id}>
-              <input
-                type='checkbox'
-                checked={isDoneList}
-                onChange={() => toggleDone(task.id)}
-              />
-              <span
-                className={`${styles.taskName} ${isDoneList ? styles.taskDone : ''}`}
-              >
-                {task.name}
-              </span>
-              <div className={styles.taskActions}>
-                <button className={styles.taskAction}>✏️</button>
-                <button className={styles.taskAction}>🗑️</button>
-              </div>
-            </div>
-          ))}
+  if (list.length === 0) return null
+
+  return (
+    <div>
+      <h2>{isDoneList ? 'Done' : 'Tasks'}</h2>
+      {list.map((task) => (
+        <div className={styles.taskRow} key={task.id}>
+          <input
+            type='checkbox'
+            checked={isDoneList}
+            onChange={() => toggleDone(task.id)}
+          />
+          <span
+            className={`${styles.taskName} ${isDoneList ? styles.taskDone : ''}`}
+          >
+            {task.name}
+          </span>
+          <div className={styles.taskActions}>
+            <button className={styles.taskAction} aria-label='Edit Task'>
+              ✏️
+            </button>
+            <button
+              className={styles.taskAction}
+              aria-label='Delete Task'
+              onClick={() => handlRemoveTask(task.id)}
+            >
+              🗑️
+            </button>
+          </div>
         </div>
-      )}
-    </>
+      ))}
+    </div>
   )
 }
