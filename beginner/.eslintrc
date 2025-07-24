@@ -12,9 +12,15 @@
         "endOfLine": "auto",
         "useTabs": false,
         "singleQuote": true,
-        "printWidth": 120,
-        "jsxSingleQuote": true
+        "printWidth": 80,
+        "jsxSingleQuote": true,
+        "bracketSameLine": false,
+        "htmlWhitespaceSensitivity": "ignore"
       }
-    ]
+    ],
+    "react/jsx-child-element-spacing": "off",
+    "react/jsx-curly-newline": "off",
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-indent-props": ["error", 2]
   }
 }
